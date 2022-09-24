@@ -46,3 +46,20 @@
   }
   ```
 </details>
+
+
+<details>
+  <summary>3. Longest Palindromic Substring (LC5)</summary>
+    
+  >
+
+  ```kt
+  ```
+</details>
+  
+<details>
+  <summary>1.  (LC1)</summary>
+
+  ```kt
+  ```
+</details>
