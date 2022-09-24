@@ -19,9 +19,30 @@
 
 
 <details>
-  <summary>2. Longest Substring Without Repeating Characters (LC3)</summary>
-
+  <summary>2. Longest Substring Without Repeating Characters (LC3)</summary>  
+  
+  > Sliding window. The idea is to extend right until we meet a duplicate character. When we do, start moving the left pointer to the right and delete characters from the cache until we meet the original duplicate character.
+  
   ```kt
+  fun lengthOfLongestSubstring(s: String): Int {
+      if (s.length == 0) return 0
+      var result = 1
+      var cache = HashSet<Char>()
+      var l = 0; var r = 0;
+      while (r < s.length) {
+          if (!cache.contains(s[r])) {
+              cache.add(s[r])
+              result = Math.max(result, cache.size)
+              r++
+          } else {
+              while (cache.contains(s[r])) {
+                  cache.remove(s[l])
+                  l++
+              }
+          }
+      }
 
+      return result
+  }
   ```
 </details>
