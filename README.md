@@ -87,9 +87,21 @@
   
 <details>
   <summary>4. Counting Bits (LC338)</summary>
-
+	
+  > Significant bit changes with every power of 2.
+	
   ```kt
-  
+  fun countBits(n: Int): IntArray {
+    var offset = 1
+    val r = IntArray(n + 1)
+
+    for (i in 1..n) {
+        if (offset * 2 == i) offset = i
+        r[i] = 1 + r[i - offset]
+    }
+
+    return r
+  }
   ```
 </details>
 
