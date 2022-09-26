@@ -51,12 +51,48 @@
 <details>
   <summary>3. Longest Palindromic Substring (LC5)</summary>
     
-  >
+  > Sliding Window? First you iterate over the string. And for each character try to expand to the left and right while s[l] == s[r]
 
   ```kt
+  fun longestPalindrome(s: String): String {
+    var result = "";
+	var maxLength = 0
+    
+    for (i in 0..s.length - 1) {
+        var l = i; var r = i;
+        while (l >= 0 && r < s.length && s[l] == s[r]) {
+            if (r - l + 1 > maxLength) {
+                maxLength = r - l + 1
+                result = s.substring(l, r+1)
+            }
+            l--
+            r++
+        }
+        
+        l = i; r = i + 1;
+        while (l >= 0 && r < s.length && s[l] == s[r]) {
+            if (r - l + 1 > maxLength) {
+                maxLength = r - l + 1
+                result = s.substring(l, r+1)
+            }
+            l--
+            r++
+        }
+    }
+    
+	return result
+  }
   ```
 </details>
   
+<details>
+  <summary>4. Counting Bits (LC338)</summary>
+
+  ```kt
+  
+  ```
+</details>
+
 <details>
   <summary>1.  (LC1)</summary>
 
